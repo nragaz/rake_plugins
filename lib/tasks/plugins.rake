@@ -5,7 +5,7 @@ namespace :plugin do
   task :install, :source do |t, args|
     current_plugins = Dir["vendor/plugins/*"]
     system "bundle exec rails plugin install #{args.source} -f"
-    installed = (current_plugins - Dir["vendor/plugins/*"]).first
+    installed = (Dir["vendor/plugins/*"] - current_plugins).first
     raise "Plugin could not be installed from #{args.source}" unless installed
     name = File.basename(installed)
     installed_plugins = File.exist?("vendor/plugins/installed.yml") ? YAML.load("vendor/plugins/installed.yml") : []
