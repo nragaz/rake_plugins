@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.email       = ["nick.ragaz@gmail.com"]
   s.homepage    = "http://github.com/nragaz/rake_plugins"
   s.summary     = "Simple Rails plugin management using Rake"
-  s.description = "Creates installed.yml in vendor/plugins to track your plugin sources and enable mass updating"
+  s.description = "Tracks Rails plugin sources in vendor/installed_plugins.yml to enable mass updating"
 
   s.required_rubygems_version = ">= 1.3.6"
 
