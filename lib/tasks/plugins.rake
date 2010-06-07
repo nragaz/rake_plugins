@@ -47,4 +47,18 @@ namespace :plugin do
     unmanaged_plugins = Dir["vendor/plugins/*"].map { |path| File.basename(path) } - installed_plugins.keys
     puts "\nThe following plugins are not being managed: #{unmanaged_plugins.join(", ")}\n" if unmanaged_plugins.any?
   end
+  
+  desc "Remove installed plugin"
+  task :remove, :name do |t, args|
+    installed_plugins = File.exist?("vendor/installed_plugins.yml") ?
+                          File.open("vendor/installed_plugins.yml") { |f| YAML::load(f) } : {}
+    raise "Plugin #{args.name} is not installed" unless installed_plugins.has_key?(args.name)
+    if system("bundle exec rails plugin remove #{args.name}")
+      installed_plugins.delete(args.name)
+      File.open('vendor/installed_plugins.yml', 'w') { |f| YAML.dump(installed_plugins, f) }
+      puts "Plugin #{args.name} removed\n"
+    else
+      "Plugin #{args.name} could not be removed\n"
+    end
+  end
 end
