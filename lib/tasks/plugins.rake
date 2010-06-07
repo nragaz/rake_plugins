@@ -1,4 +1,4 @@
-require 'YAML'
+require 'yaml'
 
 namespace :plugin do
   desc "Install a plugin"
