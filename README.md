@@ -8,7 +8,7 @@ Usage
 
 In your Gemfile:
 
-   gem "rake_plugins", :git => "git://github.com/nragaz/rake_plugins.git"
+    gem "rake_plugins", :git => "git://github.com/nragaz/rake_plugins.git"
 
 Adds the following Rake tasks:
 
