@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project         = "rake_plugins"
 
-  s.files        = Dir["{lib}/**/*.rb", "*.md"]
+  s.files        = Dir["{lib}/**/*", "*.md"]
   s.require_path = 'lib'
 end
